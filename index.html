@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Product Display</h1>
+
+    <div class="cards-container">
+        <!-- Card 1: File Input -->
+        <div class="card">
+            <h2>File Selection</h2>
+            <input type="file" accept=".csv, .json" id="fileInput">
+        </div>
+
+        <!-- Card 2: Options for File -->
+        <div class="card">
+            <h2>File Options</h2>
+            <label for="fileType">File Type:</label>
+            <select id="fileType">
+                <option value="csv">CSV</option>
+                <option value="json">JSON</option>
+            </select>
+
+            <label for="characterEncoding">Character Encoding:</label>
+            <select id="characterEncoding">
+                <option value="utf-8">UTF-8</option>
+                <option value="utf-16">UTF-16</option>
+            </select>
+
+            <label for="delimiter">Delimiter:</label>
+            <input type="text" id="delimiter" placeholder="e.g., ,">
+
+            <div class="checkbox-label">
+                <input type="checkbox" id="hasHeader">
+                <span>Has Header</span>
+            </div>
+        </div>
+
+        <!-- Card 3: Display Handling Options -->
+        <div class="card">
+            <h2>Display Handling Options</h2>
+            <div class="display-options">
+                <label for="availableFields">Available Fields:</label>
+                <select id="availableFields" multiple></select>
+
+                <div class="buttons">
+                    <button onclick="moveItems('availableFields', 'displayFields')">>></button>
+                    <button onclick="moveItems('displayFields', 'availableFields')"><<</button>
+                </div>
+
+                <label for="displayFields">Fields to be Displayed:</label>
+                <select id="displayFields" multiple></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Popularity</th>
+                    <th>Subcategory</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
